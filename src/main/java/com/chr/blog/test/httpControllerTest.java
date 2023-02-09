@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class httpControllerTest {
 	
 	private static final String TAG="HttpControllerTest: ";
-
+	
+	// localhost:8000/blog/http/lombok
 	@GetMapping("/http/lombok")
 	public String lombokTest() {
 		Member m=Member.builder().username("chr").password("1234").email("chr@nate.com").build();
