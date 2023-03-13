@@ -81,7 +81,7 @@ public class DummyControllerTest {
 	}
 	
 	// 한 페이지당 2건의 데이터를 리턴받을 예정 (paging)
-	// 2건씩, id로 sort, 최신순으로 보겠다.
+	// 2건씩, id로 sort, 최신순(DESC)으로 보겠다.
 	@GetMapping("/dummy/user")
 	public List<User> pageList(@PageableDefault(size=2, sort="id", direction=Sort.Direction.DESC) Pageable pageable){
 		Page<User> pagingUser=userRepository.findAll(pageable);
