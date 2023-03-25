@@ -15,12 +15,14 @@ import org.springframework.security.web.SecurityFilterChain;
 import com.chr.blog.config.auth.PrincipalDetailService;
 
 import jakarta.servlet.DispatcherType;
+import lombok.AllArgsConstructor;
 
 // Bean 등록 : 스프링 컨테이너에서 객체를 관리할 수 있게 하는 것 //@Configuration
 
 @Configuration // Bean 등록 (IoC 관리)
 @EnableWebSecurity // Security 필터가 등록이 된다.
 @EnableMethodSecurity(prePostEnabled=true) // 특정 주소로 접근을 하면 권한 및 인증을 미리 체크하겠다는 뜻.
+@AllArgsConstructor
 public class SecurityConfig {
 	
 	@Autowired
@@ -40,7 +42,7 @@ public class SecurityConfig {
 	// 시큐리티가 대신 로그인해주는데 password를 가로채기를 한다.
 	// 이때 해당 password가 뭘로 해쉬가 되어 회원가입이 되었는지 알아야
 	// 같은 해쉬로 암호화해서 DB에 있는 해쉬와 비교할 수 있다.
-	private void configure(AuthenticationManagerBuilder auth) throws Exception {
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(PrincipalDeatilService).passwordEncoder(encodePWD());
 	}
 	

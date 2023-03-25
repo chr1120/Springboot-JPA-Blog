@@ -15,6 +15,6 @@ public class GlobalExceptionHandler {
 	// 모든 Exception을 들어오게 하려면, Exception을 적어주면 된다.
 	@ExceptionHandler(value=Exception.class)
 	public ResponseDto<String> handleArgumentException(Exception e) {
-		return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR.value(),e.getMessage());
+		return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR.value(),e.getMessage()); //500
 	}
 }
